@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.java.monitoring.jmx</groupId>
+	<artifactId>standard-mbean</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>jmxmp</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.6.0</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>java</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<mainClass>com.java.monitoring.jmx.agent.LancerAgentAvecJMXMP</mainClass>
+						</configuration>
+					</plugin>
+					<!-- Allow to create a jar with a manifest allowing to execute LancerAgentAvecJMXMP -->
+					<!-- Launch the following command in the target folder java -jar ${project.artifactId]${project.version}.jar -->
+					<!-- plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>com.java.monitoring.jmx.agent.LancerAgentAvecJMXMP</mainClass>
+									<addClasspath>true</addClasspath>
+									<classpathPrefix>../libs/</classpathPrefix>
+									<classpathLayoutType>repository</classpathLayoutType>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin-->
+				</plugins>
+			</build>
+			<repositories>
+				<repository>
+					<id>in-project</id>
+					<name>In Project Repo</name>
+					<url>file://${project.basedir}/libs</url>
+				</repository>
+			</repositories>
+			<dependencies>
+				<dependency>
+					<groupId>javax.management</groupId>
+					<artifactId>jmxremote_optional</artifactId>
+					<version>1.0.1_04</version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+
+</project>
