@@ -29,7 +29,7 @@ import com.java.monitoring.jmx.mbean.Stock;
  * at com.java.monitoring.jmx.agent.LancerAgentAvecJMXMP.main(LancerAgentAvecJMXMP.java:39)
  * 
  * Pour lancer ce main executez la commande :
- * mvn clean compile exec:java -P jmxmp
+ * mvn clean compile exec:java -P jmxmp-agent
  * 
  * @author baptiste
  *

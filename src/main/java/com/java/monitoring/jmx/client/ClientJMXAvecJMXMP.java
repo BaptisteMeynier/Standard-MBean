@@ -13,6 +13,14 @@ import javax.management.remote.JMXServiceURL;
 
 import com.java.monitoring.jmx.mbean.StockMBean;
 
+/**
+ * 
+ * Pour lancer ce main executez la commande :
+ * mvn clean compile exec:java -P jmxmp-agent
+ * 
+ * @author baptiste
+ *
+ */
 public class ClientJMXAvecJMXMP {
   public static void main(String[] args) {
     MBeanServerConnection mbsc = null;
@@ -28,8 +36,7 @@ public class ClientJMXAvecJMXMP {
 
       mbsc = connecteur.getMBeanServerConnection();
 
-      StockMBean mbean = (StockMBean) MBeanServerInvocationHandler
-          .newProxyInstance(mbsc, name, StockMBean.class, false);
+      StockMBean mbean = (StockMBean) MBeanServerInvocationHandler.newProxyInstance(mbsc, name, StockMBean.class, false);
       int valeur = mbean.getValeur();
       System.out.println("valeur = " + valeur);
       mbean.rafraichir();
