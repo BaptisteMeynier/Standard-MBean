@@ -1,0 +1,4 @@
+<MLET CODE=com.java.monitoring.jmx.mbean.Stock 
+ ARCHIVE="TestJMX.jar" 
+ CODEBASE=http://localhost:8080/jmx/ 
+ NAME=com.java.monitoring.jmx:type=StockMBean></MLET>
