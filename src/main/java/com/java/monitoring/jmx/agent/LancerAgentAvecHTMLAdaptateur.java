@@ -15,6 +15,8 @@ import com.sun.jdmk.comm.HtmlAdaptorServer;
 /**
  * To launch
  * mvn clean package exec:java -P html
+ * 
+ * http://localhost:8000
  * @author baptiste
  *
  */
