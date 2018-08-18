@@ -12,6 +12,12 @@ import javax.management.ObjectName;
 import com.java.monitoring.jmx.mbean.Stock;
 import com.sun.jdmk.comm.HtmlAdaptorServer;
 
+/**
+ * To launch
+ * mvn clean package exec:java -P html
+ * @author baptiste
+ *
+ */
 public class LancerAgentAvecHTMLAdaptateur {
   static final int PORT_ADAPTATEUR = 8000;
 
